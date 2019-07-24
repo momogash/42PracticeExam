@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   firstword.c                                        :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momogash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 16:22:53 by momogash          #+#    #+#             */
-/*   Updated: 2019/07/24 11:06:15 by momogash         ###   ########.fr       */
+/*   Created: 2019/07/24 10:37:09 by momogash          #+#    #+#             */
+/*   Updated: 2019/07/24 14:16:13 by momogash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-int main(int ac, char *av[])
+int	ft_atoi(char *str)
 {
 	int i;
+	int results;
+	int sign;
 
-	if (ac == 2)
+	i = 0;
+	results = 0;
+	sign = 1;
+	if	(str[0] == '-')
 	{
-		i = 0;
-
-		while	(av[1][i] == ' ' || av[1][i] == '\t' || av[1][i] == '\n'|| av[1][i] == 'v' || av[1][i] == '\f')
-			i++;
-		while	((!(av[1][i] == ' ' || av[1][i] == '\t' || av[1][i] == '\n' || av[1][i] == '\v' || av[1][i] == '\f')) && av[1][i]) 
-		{
-			write(1, &av[1][i], 1);
-			i++;
-		}
+		sign = -1;
+		i++;
 	}
-	write(1, "\n", 1);
+	while	(str[i] != '\0' && str[i] >= '0' && str[i] <= '9') 
+	{
+		results  = results * 10 + str[i] - '0';
+		i++;
+	}
+	return(results * sign);
+}
+
+int main(void)
+{
+	char *a = "Mosa";
+	int x;
+
+	x = ft_atoi(a);
+	printf("interger value of the string is: %d", x);
 	return(0);
 }
