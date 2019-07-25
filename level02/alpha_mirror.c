@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ultstr.c                                           :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momogash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 15:03:22 by momogash          #+#    #+#             */
-/*   Updated: 2019/07/23 15:52:24 by momogash         ###   ########.fr       */
+/*   Created: 2019/07/25 08:23:42 by momogash          #+#    #+#             */
+/*   Updated: 2019/07/25 09:13:44 by momogash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 int main(int ac, char *av[])
 {
 	int i;
-	int alphabet;
+	int letter;
 
 	i = 0;
 	if	(ac == 2)
 	{
 		while	(av[1][i])
 		{
-			alphabet = 0;
-			if	((av[1][i] >= 'A') && ('Z' >= av[1][i]))
+			letter = 0;
+			if	(av[1][i] >= 'A' && 'Z' >= av[1][i])
 			{
-				alphabet = av[1][i] + 32;
-				write(1, &alphabet, 1);
+				letter = 'Z' - av[1][i] + 'A';
+				write(1, &letter, 1);
 			}
-			else if	((av[1][i] >= 'a') && ('z' >= av[1][i]))
+			else if	(av[1][i] >= 'a' && 'z' >= av[1][i])
 			{
-				alphabet = av[1][i] - 32;
-				write(1, &alphabet, 1);
+				letter = 'z' - av[1][i] + 'a';
+				write(1, &letter, 1);
 			}
 			else
 				write(1, &av[1][i], 1);
