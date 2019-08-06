@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   printbits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momogash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 14:24:36 by momogash          #+#    #+#             */
-/*   Updated: 2019/07/25 09:18:04 by momogash         ###   ########.fr       */
+/*   Created: 2019/08/06 09:40:35 by momogash          #+#    #+#             */
+/*   Updated: 2019/08/06 16:26:32 by momogash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	print_bits(unsigned char nbr)
 {
-	int i;
+	int div;
 
-	i = 0;
-	while	(s1[i] != '\0' && (s1[i] == s2[i]))
-		i++;
-
-	return(s1 - s2);
+	div = 128;
+	while	(div)
+	{
+		if	(div <= nbr)
+		{
+			write(1, "1", 1);
+			nbr = nbr % div;
+		}
+		else
+			write(1, "0", 1);
+		div = div / 2;
+	}
 }
 
 int main(void)
 {
-	int result;
-	char *a = "Hello";
-	char *b = "hello";
-
-	result = ft_strcmp(a, b);
-	printf("%d",result);
-	return(0);
+	char number = 'B';
+	char number1 = 'D';
+	print_bits(number);
+	write(1, "\n", 1);
+	print_bits(number);
+	write(1, "\n", 1);
+	print_bits(number1);
 }
