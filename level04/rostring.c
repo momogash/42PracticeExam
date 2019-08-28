@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 int space(char c)
 {
 	if  (c == ' ' || c == '\t')
@@ -22,11 +21,9 @@ void rotstring(char *str)
 	while  (space(str[i]) && str[i])
 		i++;
 	startFirstWord = i;
-	printf("firstword starts at %d\n", i); 
 	while  (!space(str[i]) && str[i])
 		i++;
 	endFirstWord = i;
-	printf("first word ends at %d\n", i);
 	while   (str[i] != '\0' && space(str[i]))
 		i++; 
 	while	(str[i] != '\0')
