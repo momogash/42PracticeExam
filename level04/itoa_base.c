@@ -6,7 +6,7 @@
 /*   By: momogash <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 12:12:08 by momogash          #+#    #+#             */
-/*   Updated: 2019/09/02 17:01:01 by momogash         ###   ########.fr       */
+/*   Updated: 2019/09/03 14:17:59 by momogash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -34,8 +34,8 @@ char	*ft_itoa_base(int value, int base)
 	j = 0;
 	i = 0;
 
-	str = (char *)malloc (sizeof(char) * 12);
-	temp = (char *)malloc(sizeof(char) * 12);
+	str = (char *)malloc (sizeof(char) * 33);
+	temp = (char *)malloc(sizeof(char) * 33);
 
 	if	(value == 0)
 		return("0");
